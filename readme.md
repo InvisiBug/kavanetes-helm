@@ -1,12 +1,11 @@
-# !!!!! OUT OF DATE !!!!!
-
-
-# Deployment
+# KavaNetes Helm Library 📚
+## Deployment
 ```yaml
 deployment:
   - name: <name>
     image: <image_to_run>
-    port: <external_port>
+    ports:
+    - port: <external_port>
     resources: 
       memory: <size>
       cpu: <size>
@@ -14,16 +13,18 @@ deployment:
       - name: <key>
         value: <value>
     volumes:
-      - name: <name>
-        path: <mount_path>
-        selector: <pvc_selector>
+    - type: pvc
+      name: <name_of_the_pvc>
+      path: <mount_path>
 
-  - name: grafana
-    image: grafana
-    port: 3000
-    resources: 
-      memory: "500m"
-      cpu: 100m
+    - type: config
+      name: <name_of_theConfigmap>
+      path: <path>
+
+  - name: influx
+    image: influxdb:1.5
+    ports:
+      - port: 3000
     env:
       - name: INFLUXDB_DB
         value: sensors
@@ -36,32 +37,36 @@ deployment:
       - name: INFLUXDB_PASSWORD
         value: telegraf-password
     volumes:
-      - name: pv
+      - name: influx-storage
+        type: pvc
         path: /var/lib/influxdb/
-        selector: test-pvc
 ```
-# Services
+## Services
 ```yaml
 service:  
   nodePort:
     - name: <name>
-      selector: <deployment_name>
-      port: <deployment_port>
-      nodePort: <external_port>
+      selector: <deployment>
+      ports:
+      -  port: <deployment_port_1>
+      nodeport: <external_port>
 
     - name: np21
       selector: nginx1
       port: 80
-      nodePort: 31001
+      nodeport: 31001
 
   clusterIP:
     - name: <name>
       selector: <deployment>
-      port: <internal_port>
+			ports:
+       - port: <first_internal_port>
+			 - port: <second_internal_port>
 
     - name: cip1
       selector: nginx2
-      port: 80
+			ports:
+      - port: 80
 
   loadBalancer:
     - name: <name>
@@ -72,9 +77,9 @@ service:
       selector: nginx3
       port: 80
 ```
-# Config Map
+## Config Map
 ```yaml
-configmap: 
+configmap:
   - name: <name>
     file: <path_to_file>
 
@@ -82,7 +87,7 @@ configmap:
     file: telegraf.conf
 ```
 
-# PVC
+## PVC
 ```yaml
 pvc:
   - name: <name>
@@ -91,7 +96,7 @@ pvc:
   - name: test-pvc
     storage: 500mi
 ```
-# Ingress
+## Ingress
 ```yaml
 ingress:
   - name: <name>
