@@ -10,7 +10,7 @@ metadata:
   namespace: {{ $root.Values.namespace }}
   labels:
     app: {{$element.name}}
-  
+
 spec:
   replicas: 1
   selector:
