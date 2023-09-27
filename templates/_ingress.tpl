@@ -11,6 +11,8 @@ metadata:
   annotations:
     kubernetes.io/ingress.class: "nginx"
     nginx.ingress.kubernetes.io/rewrite-target: /
+    nginx.ingress.kubernetes.io/enable-cors: "true"
+    nginx.ingress.kubernetes.io/cors-allow-origin: "*"
     nginx.ingress.kubernetes.io/proxy-body-size: 1G
     nginx.ingress.kubernetes.io/use-regex: "true"
     {{- if $element.host}}
@@ -45,7 +47,7 @@ spec:
         backend:
           service:
             name: {{$element.selector}}
-            port: 
+            port:
               number: {{$element.port}}
 {{- end -}}
 {{- end -}}
