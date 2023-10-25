@@ -1,5 +1,18 @@
 # KavaNetes Helm Library 📚
-## Deployment
+## How to create a new version
+### In this repo
+* Make changes (dont forget to upversion the `Chart.yaml` file) and commit
+* Run `helm package .` which will create a new `.tar` file
+* run `helm repo index` to update the index.yaml
+
+### In consuming app
+* Add the chart to the app (if you haven't already) by running `helm repo add kavanetes-helm https://invisibug.github.io/kavanetes-helm/`. Add the library by adding the github URL to the `Chart.yaml` file, then update with `helm repo update`
+* Update help dependencies with `helm dependancy update`
+
+
+
+# Available options
+### Deployment
 ```yaml
 deployment:
   - name: <name>
@@ -41,7 +54,7 @@ deployment:
         type: pvc
         path: /var/lib/influxdb/
 ```
-## Services
+### Services
 ```yaml
 service:  
   nodePort:
@@ -77,7 +90,7 @@ service:
       selector: nginx3
       port: 80
 ```
-## Config Map
+### Config Map
 ```yaml
 configmap:
   - name: <name>
@@ -87,7 +100,7 @@ configmap:
     file: telegraf.conf
 ```
 
-## PVC
+### PVC
 ```yaml
 pvc:
   - name: <name>
@@ -96,7 +109,7 @@ pvc:
   - name: test-pvc
     storage: 500mi
 ```
-## Ingress
+### Ingress
 ```yaml
 ingress:
   - name: <name>
