@@ -14,6 +14,7 @@ metadata:
 
 spec:
   replicas: 1
+  revisionHistoryLimit: 1
   selector:
     matchLabels:
       app: {{$element.name}}

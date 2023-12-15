@@ -3,7 +3,7 @@
 ### In this repo
 * Make changes (dont forget to upversion the `Chart.yaml` file) and commit
 * Run `helm package .` which will create a new `.tar` file
-* run `helm repo index` to update the index.yaml
+* Run `helm repo index` to update the index.yaml
 * push changes
 
 ### In consuming app
@@ -131,4 +131,3 @@ ingress:
     path: /test-path
     port: 26
 ```
-
