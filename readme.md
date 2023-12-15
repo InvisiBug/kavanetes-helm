@@ -8,6 +8,7 @@
 
 ### In consuming app
 * Add the chart to the app (if you haven't already) by running `helm repo add kavanetes-helm https://invisibug.github.io/kavanetes-helm/`. Add the library by adding the github URL to the `Chart.yaml` file, then update with `helm repo update`
+* Update the version of the chart used in the `Chart.yaml`
 * Update help dependencies with `helm dependancy update`
 
 
