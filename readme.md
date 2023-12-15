@@ -4,6 +4,7 @@
 * Make changes (dont forget to upversion the `Chart.yaml` file) and commit
 * Run `helm package .` which will create a new `.tar` file
 * run `helm repo index` to update the index.yaml
+* push changes
 
 ### In consuming app
 * Add the chart to the app (if you haven't already) by running `helm repo add kavanetes-helm https://invisibug.github.io/kavanetes-helm/`. Add the library by adding the github URL to the `Chart.yaml` file, then update with `helm repo update`
