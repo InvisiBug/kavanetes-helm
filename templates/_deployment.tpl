@@ -1,4 +1,5 @@
 {{- define "library.deployment" -}}
+{{- $env := .Values.env | default dict -}}
 {{- if .Values.deployment}}
 {{- $root := . -}}
 {{- range $index, $element := .Values.deployment}}
@@ -43,7 +44,7 @@ spec:
       {{- end }}
       containers:
       - name: {{$element.name}}
-        image: "{{$element.image }}:{{ $(.Values.env).APP_VERSION }}"
+        image: "{{$element.image }}:{{ $env.APP_VERSION }}"
         imagePullPolicy: Always
         ports:
         {{- range $index2, $ports := $element.ports}}
