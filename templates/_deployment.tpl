@@ -43,7 +43,7 @@ spec:
       {{- end }}
       containers:
       - name: {{$element.name}}
-        image: {{$element.image | quote}}
+        image: {{$element.image | quote}}:{{ .Values.env.APP_VERSION }}
         imagePullPolicy: Always
         ports:
         {{- range $index2, $ports := $element.ports}}
