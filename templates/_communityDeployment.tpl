@@ -1,8 +1,8 @@
-{{- define "library.deployment" -}}
+{{- define "library.communityDeployment" -}}
 {{- $env := .Values.env | default dict -}}
-{{- if .Values.deployment}}
+{{- if .Values.communityDeployment}}
 {{- $root := . -}}
-{{- range $index, $element := .Values.deployment}}
+{{- range $index, $element := .Values.communityDeployment}}
 ---
 apiVersion: apps/v1
 kind: Deployment
