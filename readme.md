@@ -11,7 +11,9 @@
 * Update the version of the chart used in the `Chart.yaml`
 * Update help dependencies with `helm dependancy update`
 
+# Version Info
 
+v1.2.2 => Deployment now requires env.app_version
 
 # Available options
 ### Deployment
