@@ -2,12 +2,12 @@ apiVersion: v1
 entries:
   library:
   - apiVersion: v2
-    created: "2023-12-28T17:28:33.453297Z"
+    created: "2023-12-28T17:30:44.075128Z"
     description: KavaNetes Helm Library
-    digest: 2f93933b09c27da2b77d367fc6d3313cbb70c0adee209cb319ecd2379a76eadd
+    digest: df7e497f7a68b1c7579ff7610cb25a4dfb826eeed7208d89c6ecf8024af653f1
     name: library
     type: library
     urls:
     - library-1.2.4.tgz
     version: 1.2.4
-generated: "2023-12-28T17:28:33.452951Z"
+generated: "2023-12-28T17:30:44.074659Z"
