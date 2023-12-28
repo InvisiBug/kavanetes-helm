@@ -2,7 +2,16 @@ apiVersion: v1
 entries:
   library:
   - apiVersion: v2
-    created: "2023-12-28T17:33:37.507305Z"
+    created: "2023-12-28T17:38:02.726518Z"
+    description: KavaNetes Helm Library
+    digest: c9a974d4b10030a8f813756463687b064f81cd6cee2ca053483ff4099dbecac8
+    name: library
+    type: library
+    urls:
+    - library-1.2.6.tgz
+    version: 1.2.6
+  - apiVersion: v2
+    created: "2023-12-28T17:38:02.726239Z"
     description: KavaNetes Helm Library
     digest: 04da4c4015ec683eb919574bb860bc842494462904f70c442edcf1744d45c674
     name: library
@@ -11,7 +20,7 @@ entries:
     - library-1.2.5.tgz
     version: 1.2.5
   - apiVersion: v2
-    created: "2023-12-28T17:33:37.507056Z"
+    created: "2023-12-28T17:38:02.72598Z"
     description: KavaNetes Helm Library
     digest: df7e497f7a68b1c7579ff7610cb25a4dfb826eeed7208d89c6ecf8024af653f1
     name: library
@@ -19,4 +28,4 @@ entries:
     urls:
     - library-1.2.4.tgz
     version: 1.2.4
-generated: "2023-12-28T17:33:37.506629Z"
+generated: "2023-12-28T17:38:02.725072Z"
